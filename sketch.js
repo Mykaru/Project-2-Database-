@@ -6,7 +6,7 @@ let lineY;
 let lineX; // X-coordinate for the line
 
 function setup() {
-  createCanvas(600, 800);
+  createCanvas(800, 600);
   background(50);
 
   lineY = height / 2;
@@ -28,7 +28,6 @@ function gotWeather(data) {
 }
 
 function draw() {
-  background(50);
   // Check if weatherData is available and not undefined
   if (weatherData) {
     let cityName = weatherData.location.name;
@@ -36,7 +35,25 @@ function draw() {
     let precipIn = weatherData.current.precip_in;
     let windMph = weatherData.current.wind_mph;
     let feelslikeF = weatherData.current.feelslike_f;
-    let conditionText = weatherData.current.condition.text; // Added to get the condition text
+    let conditionText = weatherData.current.condition.text;
+    let isDay = weatherData.current.is_day;
+
+    if (conditionText === "Sunny" && isDay === 1) {
+      // Create a blue gradient background for a sunny day
+      setGradient(0, 0, width, height, color(0, 0, 255), color(135, 206, 250)); // Adjust the colors as needed
+    } else if (conditionText === "Cloudy" && isDay === 1) {
+      // Create a gray gradient background for a cloudy day
+      setGradient(0, 0, width, height, color(192), color(192)); // Adjust the colors as needed
+    } else if (conditionText === "Sunny" && isDay === 0) {
+      // Create a gradient background for a clear night
+      setGradient(0, 0, width, height, color(0, 0, 25), color(0, 0, 40)); // Adjust the colors for a night sky
+    } else if (conditionText === "Cloudy" && isDay === 0) {
+      // Create a gradient background for a cloudy night
+      setGradient(0, 0, width, height, color(40), color(60)); // Adjust the colors for a cloudy night
+    } else {
+      // Default background for other conditions
+      background(50);
+    }
 
     // Display city, state, precipitation, wind speed, feels like, and condition on the canvas
     textSize(32);
@@ -47,8 +64,8 @@ function draw() {
 
     // Update the X-coordinate for the line based on animationSpeed
     lineX1 += windMph;
-    lineX2 += windMph + 0.5;
-    lineX3 += windMph - 0.5;
+    lineX2 += windMph*1.2;
+    lineX3 += windMph/1.2;
 
     // Wrap the line around the screen
     if (lineX1 > width + 100) {
@@ -69,5 +86,17 @@ function draw() {
     rect(lineX1, lineY, 85, 2);
     rect(lineX2, lineY + 50, 100, 2);
     rect(lineX3, lineY - 25, 145, 2);
+
+
+    function setGradient(x, y, w, h, c1, c2) {
+      noFill();
+      for (let i = y; i <= y + h; i++) {
+        let inter = map(i, y, y + h, 0, 1);
+        let c = lerpColor(c1, c2, inter);
+        stroke(c);
+        line(x, i, x + w, i);
+      }
+    }
+
   }
 }
