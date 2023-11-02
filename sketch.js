@@ -1,4 +1,4 @@
-let apiURL = `http://api.weatherapi.com/v1/current.json?key=31cccdf7e57341dc9ae170022230211&q=94542&aqi=yes`;
+let apiURL = `https://api.weatherapi.com/v1/current.json?key=31cccdf7e57341dc9ae170022230211&q=94542&aqi=yes`;
 
 let weatherData; // Variable to store the weather data
 let animationSpeed = 2;
