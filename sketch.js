@@ -1,21 +1,21 @@
 let apiURL = `https://api.weatherapi.com/v1/current.json?key=31cccdf7e57341dc9ae170022230211&q=94542&aqi=yes`;
 
-let weatherData; // Variable to store the weather data
+let weatherData;
 let animationSpeed = 2;
 let lineY;
-let lineX; // X-coordinate for the line
+let lineX; 
 
 function setup() {
   createCanvas(800, 600);
   background(50);
 
   lineY = height / 2;
-  lineX1 = 0; // Initialize the X-coordinate for the line
-  lineX2 = -50; // Initialize the X-coordinate for the line
-  lineX3 = 100; // Initialize the X-coordinate for the line
+  lineX1 = 0; 
+  lineX2 = -50; 
+  lineX3 = 100;
 
-  setInterval(updateWeather, 200); // Update weather every 30 minutes (in milliseconds)
-  updateWeather(); // Initial update
+  setInterval(updateWeather, 200);
+  updateWeather();
 }
 
 function updateWeather() {
@@ -23,12 +23,11 @@ function updateWeather() {
 }
 
 function gotWeather(data) {
-  // Store the weather data in the global variable
   weatherData = data;
 }
 
 function draw() {
-  // Check if weatherData is available and not undefined
+  
   if (weatherData) {
     let cityName = weatherData.location.name;
     let stateName = weatherData.location.region;
@@ -39,33 +38,32 @@ function draw() {
     let isDay = weatherData.current.is_day;
 
     if (conditionText === "Sunny" && isDay === 1) {
-      // Create a blue gradient background for a sunny day
-      setGradient(0, 0, width, height, color(0, 0, 255), color(135, 206, 250)); // Adjust the colors as needed
+      setGradient(0, 0, width, height, color(0, 0, 255), color(135, 206, 250));
     } else if (conditionText === "Cloudy" && isDay === 1) {
-      // Create a gray gradient background for a cloudy day
-      setGradient(0, 0, width, height, color(192), color(192)); // Adjust the colors as needed
+      
+      setGradient(0, 0, width, height, color(192), color(192)); 
     } else if (conditionText === "Sunny" && isDay === 0) {
-      // Create a gradient background for a clear night
-      setGradient(0, 0, width, height, color(0, 0, 25), color(0, 0, 40)); // Adjust the colors for a night sky
+      
+      setGradient(0, 0, width, height, color(0, 0, 25), color(0, 0, 40)); 
     } else if (conditionText === "Cloudy" && isDay === 0) {
-      // Create a gradient background for a cloudy night
-      setGradient(0, 0, width, height, color(40), color(60)); // Adjust the colors for a cloudy night
+      
+      setGradient(0, 0, width, height, color(40), color(60));
     } else {
-      // Default background for other conditions
+     
       background(50);
     }
 
-    // Display city, state, precipitation, wind speed, feels like, and condition on the canvas
+    
     textSize(32);
     textAlign(CENTER);
-    fill(255); // Set text color to white
+    fill(255);
     text(`${cityName}, ${conditionText}, ${feelslikeF} (°F)`, width / 2, 75);
     text(`Wind Speed (mph): ${windMph}`, width / 2, height / 2 + 200);
 
-    // Update the X-coordinate for the line based on animationSpeed
+    
     lineX1 += windMph;
     lineX2 += windMph*1.2;
-    lineX3 += windMph/1.2;
+    lineX3 += windMph/1.2  ;
 
     // Wrap the line around the screen
     if (lineX1 > width + 100) {
