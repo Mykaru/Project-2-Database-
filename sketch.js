@@ -6,7 +6,7 @@ let lineY;
 let lineX; 
 
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(600, 600);
   background(50);
 
   lineY = height / 2;
@@ -67,22 +67,22 @@ function draw() {
 
     // Wind animation, this could definitely probably be an array but mehhhhh
     if (lineX1 > width + 100) {
-      lineX1 = -100;
+      lineX1 = -85;
     }
 
-    if (lineX2 > width + 100) {
+    if (lineX2 > width + 140) {
       lineX2 = -100;
     }
 
     if (lineX3 > width + 100) {
-      lineX3 = -100;
+      lineX3 = -125;
     }
 
     fill(255);
     noStroke();
     rect(lineX1, lineY, 85, 2);
     rect(lineX2, lineY + 50, 100, 2);
-    rect(lineX3, lineY - 25, 145, 2);
+    rect(lineX3, lineY - 25, 125, 2);
 
 
     function setGradient(x, y, w, h, c1, c2) {
