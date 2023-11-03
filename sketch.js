@@ -6,7 +6,7 @@ let lineY;
 let lineX; 
 
 function setup() {
-  createCanvas(1000, 600);
+  createCanvas(800, 600);
   background(50);
 
   lineY = height / 2;
