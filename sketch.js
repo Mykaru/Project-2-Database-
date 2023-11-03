@@ -54,7 +54,7 @@ function draw() {
     }
 
     
-    textSize(32);
+    textSize(38);
     textAlign(CENTER);
     fill(255);
     text(`${cityName}, ${conditionText}, ${feelslikeF} (°F)`, width / 2, 75);
