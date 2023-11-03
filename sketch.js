@@ -38,18 +38,19 @@ function draw() {
     let isDay = weatherData.current.is_day;
 
     if (conditionText === "Sunny" && isDay === 1) {
-      setGradient(0, 0, width, height, color(0, 0, 255), color(135, 206, 250));
+    
+      setGradient(0, 0, width, height, color(0, 0, 255), color(135, 206, 250)); 
     } else if (conditionText === "Cloudy" && isDay === 1) {
       
       setGradient(0, 0, width, height, color(192), color(192)); 
-    } else if (conditionText === "Sunny" && isDay === 0) {
+    } else if ((conditionText === "Sunny" || conditionText === "Clear") && isDay === 0) {
       
-      setGradient(0, 0, width, height, color(0, 0, 25), color(0, 0, 40)); 
+      setGradient(0, 0, width, height, color(0, 0, 20), color(15, 5, 40));
     } else if (conditionText === "Cloudy" && isDay === 0) {
       
-      setGradient(0, 0, width, height, color(40), color(60));
+      setGradient(0, 0, width, height, color(5, 5, 10), color(20, 20, 30));
     } else {
-     
+      
       background(50);
     }
 
