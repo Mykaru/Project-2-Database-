@@ -1,4 +1,4 @@
-let apiURL = `https://api.weatherapi.com/v1/current.json?key=31cccdf7e57341dc9ae170022230211&q=boston&aqi=yes`;
+let apiURL = `https://api.weatherapi.com/v1/current.json?key=31cccdf7e57341dc9ae170022230211&q=hayward&aqi=yes`;
 
 let weatherData;
 let animationSpeed = 2;
