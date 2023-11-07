@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 let apiURL;
+=======
+let apiURL = `https://api.weatherapi.com/v1/current.json?key=31cccdf7e57341dc9ae170022230211&q=hayward&aqi=yes`;
+
+>>>>>>> 362716a50ec010fa3ccc02f35c1b3a16bbf4ccb6
 let weatherData;
 let animationSpeed = 2;
 let lineY;
@@ -7,7 +12,7 @@ let lineX2;
 let lineX3;
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(600, 800);
   background(50);
 
   var form = document.getElementById("cityForm");
@@ -78,11 +83,11 @@ function draw() {
     textAlign(CENTER);
     fill(255);
     text(`${cityName}, ${conditionText}, ${feelslikeF} (°F)`, width / 2, 75);
-    text(`Wind Speed (mph): ${windMph}`, width / 2, height / 2 + 200);
+    text(`Wind Speed (mph): ${windMph}`, width / 2, height / 2 + 300);
 
     
     lineX1 += windMph;
-    lineX2 += windMph*1.2;
+    lineX2 += windMph*1.3;
     lineX3 += windMph/1.2  ;
 
     // Wind animation, this could definitely probably be an array but mehhhhh
@@ -100,9 +105,9 @@ function draw() {
 
     fill(255);
     noStroke();
-    rect(lineX1, lineY, 85, 2);
-    rect(lineX2, lineY + 50, 100, 2);
-    rect(lineX3, lineY - 25, 125, 2);
+    rect(lineX1, lineY, 85, 5, 5 ,5);
+    rect(lineX2, lineY + 50, 100, 4, 5,5 );
+    rect(lineX3, lineY - 25, 125, 3, 5, 5);
 
 
     function setGradient(x, y, w, h, c1, c2) {
