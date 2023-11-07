@@ -23,7 +23,12 @@ p {
   margin-right: 20%;
 }
 
+#cityForm {
+  display: flex;
+  justify-content: space-between;
+}
+
 .form {
-  margin: 0 auto; /* Center horizontally */
-  /* Add any other necessary styling */
+  width: 200px;
+  margin: 45px auto;
 }

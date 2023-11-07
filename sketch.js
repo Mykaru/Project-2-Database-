@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-let apiURL;
-=======
 let apiURL = `https://api.weatherapi.com/v1/current.json?key=31cccdf7e57341dc9ae170022230211&q=hayward&aqi=yes`;
 
->>>>>>> 362716a50ec010fa3ccc02f35c1b3a16bbf4ccb6
 let weatherData;
 let animationSpeed = 2;
 let lineY;
@@ -12,7 +8,7 @@ let lineX2;
 let lineX3;
 
 function setup() {
-  createCanvas(600, 800);
+  createCanvas(800, 1000);
   background(50);
 
   var form = document.getElementById("cityForm");
@@ -30,7 +26,6 @@ function setup() {
   lineX2 = -50;
   lineX3 = 100;
 
-  // Initialize with default location
   updateLocation('hayward');
 
 }
@@ -46,8 +41,6 @@ function gotWeather(data) {
   weatherData = data;
 }
 
-// Your drawing and animation code goes here
-
 
 
 function draw() {
@@ -62,18 +55,18 @@ function draw() {
     let isDay = weatherData.current.is_day;
 
     if (isDay === 0) {
-      // Night sky gradient
+    
       setGradient(0, 0, width, height, color(0, 0, 20), color(15, 5, 40));
     } else {
-      // Daytime conditions
+     
       if (conditionText === "Sunny" || conditionText === "Clear") {
-        setGradient(0, 0, width, height, color(0, 0, 255), color(135, 206, 250)); // Sunny day
+        setGradient(0, 0, width, height, color(0, 0, 255), color(135, 206, 250)); 
       } else if (conditionText === "Cloudy" || conditionText === "Light rain") {
-        setGradient(0, 0, width, height, color(192), color(100)); // Cloudy day
+        setGradient(0, 0, width, height, color(192), color(100)); 
       } else if (conditionText === "Partly cloudy") {
-        setGradient(0, 0, width, height, color(135, 206, 235), color(192, 192, 192)); // Partly cloudy day
+        setGradient(0, 0, width, height, color(135, 206, 235), color(192, 192, 192));
       } else {
-        // Default background for unknown conditions
+
         background(50);
       }
     }
