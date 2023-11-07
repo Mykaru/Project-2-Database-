@@ -10,14 +10,21 @@
 
   </head>
   <body>
-    <h1>ART 356: Weather Visualization</h1>
-    
-    <script src="sketch.js"></script>
-    
+    <h1>ART 356 Project 2</h1>
+    <p>
+      I have chosen to base my project on live weather data. The animation is dependent on the current wind speed of the location.
+    </p>
 
-    
-    <p>My project is based off of live weather data. The animation is dependent on the current wind speed in the location the API is pulling data from.<p></p>
-    
-    
+    <div class="form">
+      <form id="cityForm">
+        <input type="text" id="locationInput" placeholder="Enter location" />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+
+    <div id="data">
+      <script src="sketch.js"></script>
+    </div>
+      
   </body>
 </html>
