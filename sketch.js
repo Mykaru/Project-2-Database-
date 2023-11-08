@@ -8,7 +8,7 @@ let lineX2;
 let lineX3;
 
 function setup() {
-  createCanvas(800, 1000);
+  createCanvas(600, 800);
   background(50);
 
   var form = document.getElementById("cityForm");
